@@ -22,9 +22,6 @@ export class FuncionarioHomeComponent implements OnInit {
   dataSource: MatTableDataSource<IFuncionario>;
   displayedColumns: string[]
 
-  @Input()
-  disabled = true
-
   @ViewChild(MatPaginator, { static: false }) paginator: MatPaginator
   @ViewChild(MatSort, { static: false }) sort: MatSort
   @ViewChild(MatTable) table: MatTable<IFuncionario>;
@@ -33,15 +30,25 @@ export class FuncionarioHomeComponent implements OnInit {
     public funcionarioService: CrudService<IFuncionario>,
     public dialog: MatDialog,
   ) {
-    this.selectedItem = { _id: '', nome: '', sobrenome: '', participacao: 0 };
     this.funcionarios = [];
-    this.dataSource = new MatTableDataSource<IFuncionario>();
+    this.clearSelectedItem();
     this.funcionarioService.uri = 'funcionario';
     this.displayedColumns = ['nome', 'sobrenome', 'participacao']
+    this.dataSource = new MatTableDataSource<IFuncionario>();
+  }
+
+  clearSelectedItem() {
+    this.selectedItem = { _id: '', nome: '', sobrenome: '', participacao: 0 };
   }
 
   ngOnInit(): void {
     this.getAll();
+  }
+
+  ngAfterViewInit(): void {
+    this.paginator.page.subscribe(x => {
+      this.clearSelectedItem();
+    });
   }
 
   getAll() {
@@ -58,6 +65,7 @@ export class FuncionarioHomeComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(r => {
       this.getAll()
+      this.clearSelectedItem()
       this.table.renderRows()
     })
   }
@@ -67,12 +75,12 @@ export class FuncionarioHomeComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(r => {
       this.getAll()
+      this.clearSelectedItem()
       this.table.renderRows()
     })
   }
 
   tableClick(row) {
     this.selectedItem = row;
-    return this.disabled = false;
   }
 }

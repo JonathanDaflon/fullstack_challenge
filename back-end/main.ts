@@ -14,10 +14,10 @@ if (myServer != null) {
 
     mongoConn.creatConnection().then(() => {
         User.find({'name': 'admin'}).then(r => {
-            if (!r) {
+            if (r.length == 0) {
                 let admin = new User({
                     'name': 'admin',
-                    'email': 'admin@admin',
+                    'email': 'admin@admin.com',
                     'password': 'admin',
                     'gender': 'Male'
                 })

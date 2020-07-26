@@ -31,20 +31,23 @@ export class LoginHomeComponent implements OnInit {
 
   }
 
+  loginKeyDown($event) {
+    if ($event.keyCode === 13) {
+      this.login();
+    }
+  }
+
   login() {
     this.loginService.create(this.usuarioForm.value).subscribe(r => {
-
-      let token: string[] = Object.values(r.data)
-      localStorage.setItem("access_token", token[0])
-
-      if (r.result == true) {
+      if (r.result) {
+        let token: string[] = Object.values(r.data)
+        localStorage.setItem("access_token", token[0])
         this.router.navigate(["crud/home"])
-      
-      } else {
-        this.errorMessage = r.data
       }
-
-
+      else {
+        this.errorMessage = r.data
+        alert(r.data);
+      }
     })
   }
 }

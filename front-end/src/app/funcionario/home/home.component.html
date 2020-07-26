@@ -7,8 +7,7 @@
 
         <mat-card-content>
 
-            <mat-table [dataSource]="dataSource" matSort matSortActive="participacao" matSortDirection="desc"
-                matSortDisableClear="true">
+            <mat-table [dataSource]="dataSource" matSort matSortActive="participacao" matSortDirection="desc" matSortDisableClear="true">
 
                 <ng-container matColumnDef="nome">
                     <mat-header-cell *matHeaderCellDef mat-sort-header> Nome </mat-header-cell>
@@ -26,25 +25,20 @@
                 </ng-container>
 
                 <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-                <mat-row *matRowDef="let row; columns: displayedColumns;" (click)="tableClick(row)"
-                    [ngClass]="{'rowHighlight' : selectedItem._id == row._id}"></mat-row>
+                <mat-row *matRowDef="let row; columns: displayedColumns;" (click)="tableClick(row)" [ngClass]="{'rowHighlight' : selectedItem._id == row._id}"></mat-row>
 
             </mat-table>
-            <mat-paginator [pageSize]="5" [length]="[funcionarios.length]" [pageSizeOptions]="[5,10, 15]"
-                showFirstLastButtons></mat-paginator>
+            <mat-paginator [pageSize]="5" [length]="[funcionarios.length]" [pageSizeOptions]="[5,10, 15]" showFirstLastButtons></mat-paginator>
 
         </mat-card-content>
         <mat-card-actions style="text-align: center;">
-            <button mat-raised-button color="primary" id="buttonCreate" class="button"
-                (click)="createAndEditDialog('')">
+            <button mat-raised-button color="primary" id="buttonCreate" class="button" (click)="createAndEditDialog('')">
                 <mat-icon>add</mat-icon>
             </button>
-            <button mat-raised-button class="button" [disabled]="disabled"
-                [ngClass]="{'buttonEdit' : disabled == false}" (click)="createAndEditDialog(selectedItem._id)">
+            <button mat-raised-button class="button" [disabled]="selectedItem._id==''" [ngClass]="{'buttonEdit' : selectedItem._id==''}" (click)="createAndEditDialog(selectedItem._id)">
                 <mat-icon>create</mat-icon>
             </button>
-            <button mat-raised-button color="warn" id="buttonDelete" class="button" [disabled]="disabled"
-                (click)="deleteDialog(selectedItem._id)">
+            <button mat-raised-button color="warn" id="buttonDelete" class="button" [disabled]="selectedItem._id==''" (click)="deleteDialog(selectedItem._id)">
                 <mat-icon>delete</mat-icon>
             </button>
         </mat-card-actions>
