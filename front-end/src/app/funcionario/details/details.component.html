@@ -1,0 +1,44 @@
+<mat-card>
+
+    <h1 mat-dialog-title> Funcionario </h1>
+    
+    <mat-dialog-content>
+
+        <form [formGroup]="funcionarioForm">
+
+            <mat-form-field appearance="outline">
+                <mat-label>Nome</mat-label>
+                <input matInput placeholder="" type="text" minlength="3" formControlName="nome">
+                <mat-icon matSuffix>account_box</mat-icon>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Sobrenome</mat-label>
+                <input matInput type="text" formControlName="sobrenome" minlength="3">
+                <mat-icon matSuffix>account_box</mat-icon>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Participação</mat-label>
+                <input matInput type="number" formControlName="participacao" minlength="1" maxlength="3">
+                <mat-icon matSuffix>assignment_turned_in</mat-icon>
+            </mat-form-field>
+
+        </form>
+        
+    </mat-dialog-content>
+
+    <mat-card-actions style="text-align: center;">
+
+        <button mat-raised-button color="primary" [disabled]="!funcionarioForm.valid" type="submit" class="button"
+            id="check" (click)="saveFuncionario()">
+            <mat-icon>check</mat-icon>
+        </button>
+
+        <button mat-raised-button color="warn" class="button" id='close' mat-dialog-close>
+            <mat-icon>close</mat-icon>
+        </button>
+
+    </mat-card-actions>
+
+</mat-card>

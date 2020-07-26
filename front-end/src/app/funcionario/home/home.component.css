@@ -1,0 +1,33 @@
+#view {
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.856);
+}
+
+.mat-row {
+    background-color: white;
+    transition: 700ms ease-out;
+}
+
+.mat-row:hover {
+    background-color: rgb(223, 224, 255);
+    transition: 700ms ease-in;
+} 
+
+.rowHighlight {
+    background-color: rgb(196, 196, 255);
+}
+
+.button {
+    width: 100px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+#buttonCreate {
+    margin-right: 10px;
+}
+
+.buttonEdit {
+    background-color: green;
+    color: white;
+}

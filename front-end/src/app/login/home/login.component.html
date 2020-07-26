@@ -1,0 +1,28 @@
+<mat-card id="view">
+    <mat-card id="card">
+        <h1 mat-card-title> Login </h1>
+        <mat-card-content>
+            <form [formGroup]="usuarioForm" id="form">
+                <mat-form-field appearance="outline">
+                    <mat-label>Email</mat-label>
+                    <input matInput placeholder="" type="text" minlength="3" formControlName="email">
+                    <mat-icon matSuffix>face</mat-icon>
+                </mat-form-field>
+
+                <mat-form-field appearance="outline">
+                    <mat-label>Senha</mat-label>
+                    <input matInput type="password" formControlName="password">
+                    <mat-icon matSuffix>vpn_key</mat-icon>
+                </mat-form-field>
+            
+            </form>
+
+        </mat-card-content>
+        <mat-card-actions id="action">
+            <button mat-raised-button color="primary" [disabled]="!usuarioForm.valid" type="submit" class="button"
+                (click)="login()">
+                <mat-icon>login</mat-icon>
+            </button>
+        </mat-card-actions>
+    </mat-card>
+</mat-card>

@@ -1,0 +1,13 @@
+<nav mat-tab-nav-bar mat-align-tabs="left">
+
+    <a mat-tab mat-tab-link routerLink="crud/home" routerLinkActive #homeTab="routerLinkActive"
+        [active]="homeTab.isActive" label="Home"> Home </a>
+
+    <a mat-tab mat-tab-link routerLink="crud/chart" routerLinkActive #graphTab="routerLinkActive"
+        [active]="graphTab.isActive" label="Gráfico"> Gráfico </a>
+
+    <button mat-button color="primary" (click)="logout()">
+        Logout <mat-icon>exit_to_app</mat-icon>
+    </button>
+</nav>
+<router-outlet></router-outlet>

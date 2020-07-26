@@ -1,0 +1,26 @@
+#view {
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.856);
+    justify-content: center;
+    display: flex;
+}
+
+#card {
+    width: 20%;
+    height: 270px;
+    text-align: center;
+    margin-top: 20px;
+}
+
+#form {
+    margin-top: 30px;
+    width: 100%;
+}
+
+#action {
+    margin-top: -20px;
+}
+
+.button {
+    width: 50%;
+}
