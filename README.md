@@ -6,6 +6,7 @@ Para utilizar esse projeto você precisará das ferramentas acima e seguir os pa
 2) Para subir a API você precisará utilizar os comandos:
       - cd back-end
       - npm i
+      - tsc (para que o typescript compile o diretório dist)
       - cd dist
       - node main
 
@@ -39,4 +40,4 @@ a partir dos dados inseridos na tab Home.
 
 Gráfico: https://prnt.sc/tosyyo
 
-Pronto! você conseguiu utilizar esse projeto. Qualquer dúvida por favor entre em contato pelo email: joanthandaflon@yahoo.com
+Pronto! você conseguiu utilizar esse projeto. Qualquer dúvida por favor entre em contato pelo email: jonathandaflon@yahoo.com
